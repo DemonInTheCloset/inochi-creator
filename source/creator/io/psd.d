@@ -1,7 +1,7 @@
 /*
     Copyright © 2020, Inochi2D Project
     Distributed under the 2-Clause BSD License, see LICENSE file.
-    
+
     Authors: Luna Nielsen
 */
 module creator.io.psd;
@@ -89,13 +89,13 @@ void incImportPSD(string file) {
             part.opacity = (cast(float)layer.opacity)/255;
             part.zSort = -(cast(float)i);
             switch(layer.blendModeKey) {
-                case BlendingMode.Multiply: 
+                case BlendingMode.Multiply:
                     part.blendingMode = BlendMode.Multiply; break;
-                case BlendingMode.LinearDodge: 
+                case BlendingMode.LinearDodge:
                     part.blendingMode = BlendMode.LinearDodge; break;
-                case BlendingMode.ColorDodge: 
+                case BlendingMode.ColorDodge:
                     part.blendingMode = BlendMode.ColorDodge; break;
-                case BlendingMode.Screen: 
+                case BlendingMode.Screen:
                     part.blendingMode = BlendMode.Screen; break;
                 default:
                     part.blendingMode = BlendMode.Normal; break;
@@ -107,13 +107,13 @@ void incImportPSD(string file) {
                 if (isLastStackItemHidden()) part.enabled = false;
                 if (layerGroupStack[$-1].blendModeKey != BlendingMode.PassThrough) {
                     switch(layerGroupStack[$-1].blendModeKey) {
-                        case BlendingMode.Multiply: 
+                        case BlendingMode.Multiply:
                             part.blendingMode = BlendMode.Multiply; break;
-                        case BlendingMode.LinearDodge: 
+                        case BlendingMode.LinearDodge:
                             part.blendingMode = BlendMode.LinearDodge; break;
-                        case BlendingMode.ColorDodge: 
+                        case BlendingMode.ColorDodge:
                             part.blendingMode = BlendMode.ColorDodge; break;
-                        case BlendingMode.Screen: 
+                        case BlendingMode.Screen:
                             part.blendingMode = BlendMode.Screen; break;
                         default:
                             part.blendingMode = BlendMode.Normal; break;
